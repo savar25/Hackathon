@@ -7,30 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".designer">
 
-    <com.example.models.ScaleDrag
-        android:id="@+id/imageViewDesign"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241"
-        android:visibility="gone"
-        extra:bitmap1="0" />
+
 
     <ImageButton
         android:id="@+id/doodleBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="200dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="68dp"
         android:background="@android:color/holo_purple"
         android:scaleType="fitXY"
         android:tint="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewDesign"
         app:srcCompat="@drawable/doodle1" />
 
     <ImageButton
@@ -49,14 +38,16 @@
         android:id="@+id/textAdd"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="60dp"
         android:layout_marginStart="60dp"
+        android:background="@android:color/holo_purple"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/imageAdd"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageAdd"
         app:layout_constraintTop_toTopOf="@+id/imageAdd"
         app:layout_constraintVertical_bias="0.566"
-        app:srcCompat="@drawable/text_add"
-        android:scaleType="fitXY"
-        android:background="@android:color/holo_purple"/>
+        app:srcCompat="@drawable/text_add" />
 
     <ImageView
         android:id="@+id/mainImage"
@@ -81,6 +72,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.241"
         android:visibility="gone"
+        extra:bitmap="0"
         tools:layout_editor_absoluteX="199dp"
         tools:layout_editor_absoluteY="252dp" />
+
+    <com.example.models.ScaleDrag
+        android:id="@+id/imageViewDesign"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.241"
+        android:visibility="gone"
+        extra:bitmap1="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
