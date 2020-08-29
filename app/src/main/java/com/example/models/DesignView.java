@@ -11,11 +11,15 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 
 import com.example.hackathon.R;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.MotionEventCompat;
+
+import static android.view.MotionEvent.INVALID_POINTER_ID;
 
 public class DesignView extends View {
 
@@ -52,6 +56,8 @@ public class DesignView extends View {
         }finally {
             a.recycle();
         }
+
+
     }
 
     public DesignView(Context context) {
@@ -87,6 +93,8 @@ public class DesignView extends View {
         float x_pos=event.getX();
         float y_pos=event.getY();
 
+        final int action = MotionEventCompat.getActionMasked(event);
+
         Log.d(TAG, "onTouchEvent: called");
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -95,18 +103,27 @@ public class DesignView extends View {
             case MotionEvent.ACTION_MOVE:
                 path.lineTo(x_pos,y_pos);
                 canvas1.drawPath(path,brush);
-                break;
+
+              break;
             case MotionEvent.ACTION_UP:
                 canvas1.drawPath(path,brush);
                 path.reset();
+
                 break;
+
+
+
             default:
                 return false;
         }
 
         invalidate();
 
+
         return true;
 
     }
+
+
+
 }

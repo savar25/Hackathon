@@ -9,6 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.models.ImageModel;
 
@@ -19,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ImageModel> al_images=new ArrayList<>();
     private boolean boolean_folder;
     RecyclerView recyclerView;
+    ImageView imageView;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +31,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        recyclerView=findViewById(R.id.rec);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ImageAdapter adapter=new ImageAdapter(fn_imagespath(),this);
-        recyclerView.setAdapter(adapter);
+        imageView=findViewById(R.id.craftmage);
+        button=findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageView.setVisibility(View.GONE);
+                button.setVisibility(View.GONE);
+                recyclerView=findViewById(R.id.rec);
+                recyclerView.setVisibility(View.VISIBLE);
+                recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                ImageAdapter adapter=new ImageAdapter(fn_imagespath(),MainActivity.this);
+                recyclerView.setAdapter(adapter);
+            }
+        });
+
+
 
 
     }
